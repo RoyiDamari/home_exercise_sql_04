@@ -1,0 +1,46 @@
+# Exercise 01
+# a
+select c.course_name, l.first_name, l.last_name
+from courses c
+inner join lecturers l on c.lecturer_id = l.lecturer_id;
+
+# b
+select c.course_name, l.first_name, l.last_name
+from courses c
+left join lecturers l on c.lecturer_id = l.lecturer_id
+where c.lecturer_id ISNULL;
+
+# c
+select c.course_name, l.first_name, l.last_name
+from courses c
+left join lecturers l on c.lecturer_id = l.lecturer_id;
+
+# d
+select l.first_name, l.last_name, c.course_name
+from lecturers l
+inner join courses c on l.lecturer_id = c.lecturer_id
+
+# e
+select l.first_name, l.last_name, c.course_name
+from lecturers l
+left join courses c on l.lecturer_id = c.lecturer_id
+where c.lecturer_id ISNULL;
+
+# f
+select l.first_name, l.last_name, c.course_name
+from lecturers l
+left join courses c on l.lecturer_id = c.lecturer_id;
+
+# g
+select c.course_name, l.first_name, l.last_name
+from courses c
+left outer join lecturers l on c.lecturer_id = l.lecturer_id
+UNION
+select c.course_name, l.first_name, l.last_name
+from lecturers l
+left outer join courses c on l.lecturer_id = c.lecturer_id;
+
+# h
+select l.first_name, l.last_name, c.course_name
+from lecturers l
+cross join courses c;
